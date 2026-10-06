@@ -1,46 +1,50 @@
-# BÁO CÁO BÀI TẬP: THIẾT KẾ VẬN HÀNH SCRUM CHO TÍNH NĂNG ĐẶT XE GHÉP
+# [Vận dụng chuyên sâu] THIẾT KẾ VẬN HÀNH SCRUM CHO TÍNH NĂNG ĐẶT XE GHÉP
 
-> 👤 **Học viên:** Đỗ Hoàng Sơn | **Mã SV:** PTIT-HCM-055
+> 👤 **Học viên:** Đỗ Hoàng Sơn | **Mã SV:** PTIT-HCM-066
 > 🏫 **Môn học:** IT206-K25-Agile-va-Scrum
 
 ---
 
 ## Phần 1 - Phân tích
 
-Trong một Sprint chuẩn của đội RikkeiGo, đầu vào bao gồm Product Backlog đã được Product Owner tinh chỉnh, Sprint Goal (mục tiêu của Sprint) và năng lực thực tế của đội (Velocity). Đầu ra là một Incremental (phần mềm có thể chạy được, đáp ứng định nghĩa hoàn thành - Definition of Done) và Product Backlog được cập nhật lại.
+Trong bối cảnh đội RikkeiGo cần ra mắt tính năng đặt xe ghép trong vòng 6 tuần với nhiều biến động từ yêu cầu người dùng, việc thiết kế nhịp làm việc chuẩn Scrum là cực kỳ quan trọng.
 
-Tôi chọn độ dài mỗi Sprint là 2 tuần (14 ngày). Với thời hạn tổng cộng là 6 tuần để ra mắt tính năng đặt xe ghép, 6 tuần này sẽ được chia trọn vẹn thành 3 Sprint (Sprint 1, Sprint 2, Sprint 3).
+Đầu vào (Sprint Input) của một Sprint bao gồm: Product Backlog đã được Product Owner ưu tiên, năng lực của đội ngũ (Team Capacity) từ các Sprint trước, và định nghĩa hoàn thành (Definition of Done - DoD).
 
-Lựa chọn độ dài 2 tuần gắn liền chặt chẽ với trụ cột 'Sự minh bạch' (Transparency) và 'Sự thanh tra' (Inspection) trong Scrum. Cụ thể, sau mỗi 2 tuần, sản phẩm chạy được phải được mang ra thanh tra cùng các bên liên quan và khách hàng mẫu, giúp đội ngũ kiểm chứng xem tính năng ghép chuyến hay tính năng thanh toán đang vận hành ra sao, tránh việc 'đóng cửa gõ code' suốt 6 tuần mới đem ra sản phẩm không đúng ý thị trường.
+Đầu ra (Sprint Output) của một Sprint bao gồm: Bản chạy được (Increment) có thể sử dụng hoặc đem đi kiểm thử ngay với người dùng thực tế, và Sprint Backlog chưa hoàn thành (nếu có) được đánh giá lại trong buổi Review.
 
-- Đầu vào Sprint: Product Backlog ưu tiên, Sprint Goal, Năng lực đội ngũ (Velocity).
-- Đầu ra Sprint: Phần mềm chạy được (Increment), Product Backlog tối ưu hóa.
-- Độ dài Sprint: 2 tuần (3 Sprint cho tổng thời gian 6 tuần dự án).
+Độ dài Sprint được chọn là 2 tuần (2-week Sprint). Với tổng thời gian 6 tuần, đội sẽ trải qua chính xác 3 Sprint trọn vẹn (Sprint 1, Sprint 2, Sprint 3).
+
+Lý do chọn Sprint kéo dài 2 tuần gắn liền với trụ cột 'Thanh tra và Thích ứng' (Inspection & Adaptation) của Scrum: Khoảng thời gian 2 tuần đủ dài để đội hoàn thành một lượng tính năng có giá trị sử dụng (Increment), nhưng lại đủ ngắn để không đi sai hướng quá lâu nếu phản hồi từ thị trường hoặc yêu cầu nghiệp vụ thay đổi.
+
+- Độ dài Sprint: 2 tuần (3 Sprint trong 6 tuần).
+- Trụ cột Scrum áp dụng: Thanh tra (Inspection) và Thích ứng (Adaptation).
+- Sản phẩm bàn giao: Increment chạy được sau mỗi 2 tuần để người dùng thử nghiệm.
 
 ## Phần 2 - Thiết kế
 
-Dựa trên các nhu cầu thô do Đức (Product Owner) cung cấp, tôi sắp xếp lại thành Product Backlog theo thứ tự ưu tiên từ cao xuống thấp dựa trên giá trị cốt lõi mang lại cho khách hàng và tính khả thi kỹ thuật của mô hình xe ghép.
+Product Owner (Đức) đã tiếp nhận 4 nhu cầu thô từ khách hàng và tiến hành sắp xếp lại thành Product Backlog theo thứ tự ưu tiên dựa trên giá trị cốt lõi mang lại cho người dùng và bài toán kinh doanh của RikkeiGo.
 
-| Thứ tự | Hạng mục (Product Backlog Item) | Mô tả chi tiết | Lý do sắp xếp thứ tự |
+| Thứ tự | Hạng mục Product Backlog | Mô tả chi tiết | Lý do sắp xếp ưu tiên |
 | --- | --- | --- | --- |
-| 1 | Ghép khách đi chung tuyến đường | Hệ thống tự động gom các khách hàng có chung lộ trình vào một chuyến xe ghép. | Đây là giá trị cốt lõi (Core Value) và là bản chất của dịch vụ RikkeiGo. Không có tính năng này thì không hình thành mô hình đặt xe ghép. |
-| 2 | Tự động chia tiền cho từng khách | Sau chuyến đi, hệ thống tự động tính toán và chia đều hoặc chia theo thỏa thuận số tiền cước cho từng khách. | Giải quyết bài toán thanh toán phức tạp của xe ghép. Khách hàng cần biết rõ số tiền mình phải trả ngay sau khi kết thúc chuyến đi. |
-| 3 | Thanh toán bằng thẻ ngân hàng | Tích hợp cổng thanh toán thẻ quốc tế và nội địa để khách thanh toán trực tuyến. | Đáp ứng nhu cầu giao dịch không tiền mặt, tuy nhiên xếp sau lõi nghiệp vụ ghép xe và chia tiền vì có thể dùng tiền mặt hoặc các hình thức tạm thời trong giai đoạn đầu. |
-| 4 | Khách đánh giá bạn đi ghép | Cho phép hành khách chấm điểm và để lại đánh giá về tài xế hoặc bạn đi ghép sau chuyến đi. | Tính năng bổ trợ giúp tăng chất lượng dịch vụ dài hạn, nên được đưa vào Sprint cuối khi hệ thống cốt lõi đã chạy ổn định. |
+| 1 | Ghép khách đi chung tuyến đường | Thuật toán gom các khách hàng có chung lộ trình vào cùng một chuyến xe ghép. | Đây là giá trị cốt lõi (Core Value) quyết định bản chất của dịch vụ xe ghép, không thể thiếu ở bản ra mắt đầu tiên. |
+| 2 | Tự động chia tiền cho từng khách | Hệ thống tự động tính toán và chia đều hoặc chia theo quãng đường cho các khách trong cùng chuyến. | Đi kèm ngay sau tính năng ghép xe để giải quyết bài toán thanh toán minh bạch, nếu không có tính năng này thì việc đi ghép không khả thi. |
+| 3 | Thanh toán bằng thẻ ngân hàng | Tích hợp cổng thanh toán thẻ để khách hàng thanh toán trực tuyến. | Đáp ứng nhu cầu thanh toán điện tử cơ bản, dù có thể thay đổi phương thức nhưng cần có sẵn một cổng thanh toán mẫu ở giai đoạn đầu. |
+| 4 | Khách đánh giá bạn đi ghép | Cho phép khách hàng rate sao và để lại feedback về tài xế hoặc bạn đồng hành sau chuyến đi. | Tính năng bổ trợ giúp nâng cao chất lượng dịch vụ dài hạn, đưa vào Sprint cuối khi hệ thống cốt lõi đã chạy ổn định. |
 
 ## Phần 3 - Xử lý thay đổi
 
-Giữa tuần thứ 2 của Sprint (khi đội đang làm dở công việc), khách hàng yêu cầu ưu tiên thanh toán qua ví điện tử trước thẻ ngân hàng. Theo tinh thần Agile 'Phản hồi với thay đổi hơn bám sát kế hoạch', cách xử lý của chúng tôi như sau:
+Vào giữa tuần thứ 2, khi đội đang làm dở Sprint 1 và có yêu cầu đổi ưu tiên từ 'Thanh toán thẻ ngân hàng' sang 'Thanh toán qua ví điện tử', Scrum Team xử lý theo đúng tinh thần linh hoạt của Agile:
 
-1. Người quyết định: Product Owner (Đức) là người tiếp nhận yêu cầu từ thị trường, đánh giá lại giá trị kinh doanh và quyết định đưa yêu cầu này vào Product Backlog, đồng thời thương lượng với Development Team về việc điều chỉnh phạm vi Sprint hiện tại nếu cần hoặc đưa vào Sprint tiếp theo tùy thuộc vào mức độ khẩn cấp.
+1. Ai quyết định: Product Owner (Đức) là người duy nhất có quyền thay đổi và sắp xếp lại Product Backlog sau khi đã cân nhắc giá trị kinh doanh và áp lực từ phản hồi thị trường.
 
-2. Nơi ghi nhận: Yêu cầu mới được cập nhật ngay lập tức vào Product Backlog trên công cụ quản lý (Jira/Trello), dịch chuyển độ ưu tiên của ví điện tử lên trên thẻ ngân hàng.
+2. Đưa vào đâu: Yêu cầu 'Thanh toán qua ví điện tử' được đưa vào Product Backlog, thay thế vị trí ưu tiên của thẻ ngân hàng cho các Sprint tiếp theo.
 
-3. Thời điểm áp dụng: Do đội đang làm dở một Sprint, nguyên tắc Scrum là không phá vỡ mục tiêu Sprint hiện tại (Sprint Goal) trừ khi Sprint đó mất hẳn ý nghĩa. Do đó, đội ngũ giữ nguyên Sprint Goal hiện tại để hoàn thành dở dang, nhưng hạng mục thanh toán qua ví điện tử sẽ được đưa thẳng lên vị trí số 1 trong buổi Sprint Planning tiếp theo ngay khi kết thúc Sprint này để phát triển và ra mắt sớm nhất có thể.
+3. Áp dụng từ khi nào: Do Sprint hiện tại (Sprint 1) đang chạy dở và đội đang tập trung hoàn thành mục tiêu Sprint Goal (Ghép khách và chia tiền), việc thay đổi sẽ không nhồi nhét vào giữa Sprint để tránh phá vỡ cam kết của đội. Thay vào đó, yêu cầu ví điện tử sẽ chính thức được đưa vào Sprint Planning của Sprint tiếp theo (Sprint 2) để đội lên kế hoạch kỹ thuật và triển khai.
 
-- Người quyết định: Product Owner (Đức).
-- Nơi ghi nhận: Product Backlog trên hệ thống quản lý công việc.
-- Thời điểm áp dụng: Đưa vào đầu Sprint kế tiếp để đảm bảo không làm gián đoạn Sprint Goal hiện tại.
+- Người quyết định: Product Owner.
+- Nơi ghi nhận: Product Backlog.
+- Thời điểm áp dụng: Bắt đầu từ Sprint tiếp theo (Sprint 2), bảo vệ tiến độ của Sprint hiện tại.
 
 ---
 
